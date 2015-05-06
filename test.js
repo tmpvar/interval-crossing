@@ -1,6 +1,9 @@
 var test = require('tape');
 var crossing = require('./interval-crossing');
 
+var places = 15
+var EPS = 1/(Math.pow(10, places));
+
 test('center', function(t) {
   var r = crossing(
     [0, 1],
@@ -39,7 +42,7 @@ test('crossing at PI', function(t) {
 
     return Math.sin(x)/x;
   }
-  var r = crossing([2, 3.2], f);
-  t.equal(r, Math.PI, 'right on pi');
+  var r = crossing([2, 3.2], f, EPS);
+  t.equal((r).toFixed(places-1), Math.PI.toFixed(places-1), 'right on pi');
   t.end();
 })
