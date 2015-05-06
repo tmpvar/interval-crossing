@@ -37,10 +37,9 @@ test('crossing at PI', function(t) {
       x=1e-10;
     }
 
-    // console.log('here', Math.sin(x)/x)
     return Math.sin(x)/x;
   }
-  var r = crossing([0, 1], f);
-  t.equal(r, 3.1415, 'right in the middle');
+  var r = crossing([2, 3.2], f);
+  t.equal(r, Math.PI, 'right on pi');
   t.end();
 })
