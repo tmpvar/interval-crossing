@@ -1,6 +1,7 @@
 module.exports = crossing;
 
 var abs = Math.abs;
+var EPS = 1e-12;
 
 function sign(i) {
   return i = (i>0) - (i<0);
@@ -27,7 +28,8 @@ function crossing(interval, fn) {
 
     var n = s + d * r;
     var nv = fn(n);
-    if (nv === 0) {
+    console.log(nv)
+    if (abs(nv) < EPS) {
       return n;
     } else {
       if (sign(nv) !== sign(ev)) {

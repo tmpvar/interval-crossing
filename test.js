@@ -30,3 +30,17 @@ test('corner @ .5', function(t) {
   t.equal(r, .5, 'right in the middle');
   t.end();
 })
+
+test('crossing at PI', function(t) {
+  function f(x) {
+    if (x === 0) {
+      x=1e-10;
+    }
+
+    // console.log('here', Math.sin(x)/x)
+    return Math.sin(x)/x;
+  }
+  var r = crossing([0, 1], f);
+  t.equal(r, 3.1415, 'right in the middle');
+  t.end();
+})
